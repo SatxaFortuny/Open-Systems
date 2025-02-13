@@ -1,0 +1,106 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 18 dic 2024, 18:29:16
+    Author     : miriam
+*/
+
+/* Establecer el tamaño fijo para la cabecera */
+/* Asegura que la cabecera siempre tenga el mismo tamaño */
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Si hay un logo o título dentro de la cabecera */
+.header h1 {
+  font-size: 2rem !important;
+  margin: 0 !important;
+}
+
+/* Encabezados */
+h2 {
+    color: #2c3e50; /* Azul oscuro */
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Campos de formulario */
+.form-control {
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f7f9fb; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    padding: 10px;
+    transition: all 0.3s ease; /* Animación al enfocar */
+}
+
+.form-control:focus {
+    border-color: #3498db; /* Azul claro */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Sombra azul */
+    outline: none;
+}
+
+/* Botón personalizado */
+.btn-custom {
+    background-color: #4CAF50; /* Verde moderno */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animación al pasar el cursor */
+}
+
+.btn-custom:hover {
+    background-color: #45a049; /* Verde más oscuro */
+}
+
+/* Ajustes generales */
+body {
+    background-color: #fdf6e3; /* Beige pastel */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 30px;
+}
+
+/* Títulos dentro del panel */
+.panel-title {
+    color: #2c3e50; /* Azul oscuro */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Mensajes de alerta */
+.alert {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde rojo claro */
+}

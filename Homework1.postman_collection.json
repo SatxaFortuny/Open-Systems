@@ -1,0 +1,2432 @@
+{
+	"info": {
+		"_postman_id": "bf6e7d58-4b7d-4036-b401-467ece4fca7e",
+		"name": "Homework1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40078783",
+		"_collection_link": "https://sobgrup08.postman.co/workspace/sob_grup_08-Workspace~e05b5d48-1aba-4da5-a8d6-b638f3fa41c0/collection/40078783-bf6e7d58-4b7d-4036-b401-467ece4fca7e?action=share&source=collection_link&creator=40078783"
+	},
+	"item": [
+		{
+			"name": "ArticleService",
+			"item": [
+				{
+					"name": "obtenirArticle",
+					"item": [
+						{
+							"name": "Prova 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid user data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"    pm.expect(jsonData).to.have.property('title');\r",
+											"    pm.expect(jsonData).to.have.property('content');\r",
+											"    pm.expect(jsonData).to.have.property('publishDate');\r",
+											"    pm.expect(jsonData).to.have.property('views');\r",
+											"    pm.expect(jsonData).to.have.property('topic');\r",
+											"    pm.expect(jsonData).to.have.property('authorName');\r",
+											"    pm.expect(jsonData).to.not.have.property('author'); \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct number of topic\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.topic).to.have.length(1);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid user data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"    pm.expect(jsonData).to.have.property('title');\r",
+											"    pm.expect(jsonData).to.have.property('content');\r",
+											"    pm.expect(jsonData).to.have.property('publishDate');\r",
+											"    pm.expect(jsonData).to.have.property('views');\r",
+											"    pm.expect(jsonData).to.have.property('authorName');\r",
+											"    pm.expect(jsonData).to.not.have.property('author');\r",
+											"    pm.expect(jsonData.itPublic).to.be.false;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "supersecurepassword",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "marcprofe",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "puertorico",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "jovanivazquez",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "deleteArticle",
+					"item": [
+						{
+							"name": "Prova 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "sob",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sob",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401 (Unauthorized)\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "satxa",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article/99",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article",
+										"99"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "obtenirArticles",
+					"item": [
+						{
+							"name": "Prova 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 6 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(6);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 2 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(2);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?author=Satxa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Satxa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 4 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(4);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Software",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Software"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 1 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(1);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Software&topic=AI",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Software"
+										},
+										{
+											"key": "topic",
+											"value": "AI"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Empanadas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Empanadas"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 6",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 4 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(4);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Software&topic=Software",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Software"
+										},
+										{
+											"key": "topic",
+											"value": "Software"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 7",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains valid article data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"    jsonData.forEach(article => {\r",
+											"        pm.expect(article).to.be.an('object');\r",
+											"        pm.expect(article).to.not.have.property('id');\r",
+											"        pm.expect(article).to.have.property('title');\r",
+											"        pm.expect(article).to.not.have.property('content');\r",
+											"        pm.expect(article).to.have.property('publishDate');\r",
+											"        pm.expect(article).to.have.property('views');\r",
+											"        pm.expect(article).to.not.have.property('topics');\r",
+											"        pm.expect(article).to.not.have.property('authorName');\r",
+											"        pm.expect(article).to.have.property('author');\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 1 articles\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.lengthOf(1);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Software&topic=CyberSecurity&author=Satxa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Software"
+										},
+										{
+											"key": "topic",
+											"value": "CyberSecurity"
+										},
+										{
+											"key": "author",
+											"value": "Satxa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 8",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?topic=Software&topic=Hardware&topic=CyberSecurity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "Software"
+										},
+										{
+											"key": "topic",
+											"value": "Hardware"
+										},
+										{
+											"key": "topic",
+											"value": "CyberSecurity"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 9",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article?author=miriamduran",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "miriamduran"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "penjarArticles",
+					"item": [
+						{
+							"name": "Prova 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\", \"Software\"],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 6",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 7",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova 8",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"MIPS takes over the market\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"article"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CustomerService",
+			"item": [
+				{
+					"name": "ObtenirCustomer",
+					"item": [
+						{
+							"name": "Prova4",
+							"item": [
+								{
+									"name": "PujarArticle",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "1234",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "miriamduran",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market.\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"Homework1",
+												"rest",
+												"api",
+												"v1",
+												"article"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ObtenirCustomer",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"La respuesta tiene las propiedades esperadas\", function () {\r",
+													"    let jsonData = pm.response.json();\r",
+													"\r",
+													"    // Verificar que los campos principales existen\r",
+													"    pm.expect(jsonData).to.have.property(\"articles\");\r",
+													"    pm.expect(jsonData).to.have.property(\"id\");\r",
+													"    pm.expect(jsonData).to.have.property(\"user\");\r",
+													"\r",
+													"    // Verificar que 'articles' es un array\r",
+													"    pm.expect(jsonData.articles).to.be.an(\"array\");\r",
+													"    pm.expect(jsonData.articles.length).to.be.greaterThan(0);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "1234",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "miriamduran",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"Homework1",
+												"rest",
+												"api",
+												"v1",
+												"customer",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Prova1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response contains valid user data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"    pm.expect(jsonData).to.have.property('user');\r",
+											"    pm.expect(jsonData).to.not.have.property('password'); // No debe incluir la contraseña\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Links are properly set if the user is an author\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    if (jsonData.links) {\r",
+											"        pm.expect(jsonData.links).to.have.property('article');\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response contains valid user data\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.not.have.property('articles');\r",
+											"    pm.expect(jsonData).to.have.property('id');\r",
+											"    pm.expect(jsonData).to.have.property('user');\r",
+											"    pm.expect(jsonData).to.not.have.property('password'); // No debe incluir la contraseña\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Non existent customer\", () => {\r",
+											"  pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ObtenirLastestArticles",
+					"item": [
+						{
+							"name": "Prova3",
+							"item": [
+								{
+									"name": "ActualizacióLink",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"El ID del enlace del usuario 'sob' es mayor que 6\", function () {\r",
+													"    let jsonData = pm.response.json(); // Obtiene la respuesta como JSON\r",
+													"\r",
+													"    // Encuentra el usuario 'sob' en la lista\r",
+													"    let sobUser = jsonData.find(user => user.user === \"sob\");\r",
+													"\r",
+													"    // Asegúrate de que se encontró el usuario 'sob'\r",
+													"    pm.expect(sobUser).to.not.be.undefined;\r",
+													"    pm.expect(sobUser).to.have.property(\"links\");\r",
+													"    pm.expect(sobUser.links).to.have.property(\"article\");\r",
+													"\r",
+													"    // Extraer el ID del artículo desde el enlace\r",
+													"    let articleId = parseInt(sobUser.links.article.split(\"/\").pop(), 10); // Obtiene el número después de \"/article/\"\r",
+													"\r",
+													"    // Verifica que el ID sea mayor que 6\r",
+													"    pm.expect(articleId).to.be.greaterThan(6);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/Homework1/rest/api/v1/customer",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"Homework1",
+												"rest",
+												"api",
+												"v1",
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PujarArticle",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "sob",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "sob",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"Article de prova per el test 3 del GET obtenir tots els customers\",\r\n  \"content\": \"In recent years, MIPS (Microprocessor without Interlocked Pipeline Stages) has taken a significant share of the microprocessor market. Its architecture, known for efficiency and simplicity in design, has attracted major manufacturers. The adoption of MIPS in embedded devices, automotive systems, and IoT technology has surged due to its low power consumption and high performance. Competition with other architectures has been fierce, but MIPS has solidified its position thanks to its flexibility and scalability. More and more companies are choosing this architecture, securing its dominant position in the global tech market.\",\r\n  \"featuredImageUrl\": null,\r\n  \"resume\": \"MIPS has absolutely demolished all the other types of processors inadvertently\",\r\n  \"topics\": [\"AI\", \"Hardware\"],\r\n  \"isPublic\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/Homework1/rest/api/v1/article",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"Homework1",
+												"rest",
+												"api",
+												"v1",
+												"article"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Prova1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an array\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Users who are authors have article links\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    jsonData.forEach(user => {\r",
+											"        if (user.links) {\r",
+											"            pm.expect(user.links).to.have.property('article');\r",
+											"        }\r",
+											"    });\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Users do not have sensitive information\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    jsonData.forEach(user => {\r",
+											"        pm.expect(user).to.not.have.property('password');\r",
+											"    });\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ModifyCustomer",
+					"item": [
+						{
+							"name": "Prova1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 200 - El cliente está autenticado y es el mismo\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 403 - Credenciales no coinciden\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "password",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "satxa",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 404 - Cliente no encontrado\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 406 - Nombre de usuario ya en uso\", function () {\r",
+											"    pm.response.to.have.status(406);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"credentials\": {\r\n        \"username\": \"satxa\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 403 - No se pueden modificar artículos\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "sob",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sob",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"articles\": [\r\n        {\r\n            \"id\": 1,\r\n            \"title\": \"New title\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova6",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 401 - Sin autorización\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova7",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 500 - Error interno del servidor\", function () {\r",
+											"    pm.response.to.have.status(500);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "sob",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sob",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova8",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 200 - Modificación correcta de datos\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "miriamduran",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Miriam\",\r\n    \"credentials\":{\r\n        \"password\": \"12345678\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Prova9",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado 200 - Modificación correcta de datos\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "supersecurepassword",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "marcprofe",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<customer>\r\n   <credentials>\r\n      <password>constrasenasegura</password>\r\n   </credentials>\r\n   <name>Marc</name>\r\n</customer>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/Homework1/rest/api/v1/customer/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Homework1",
+										"rest",
+										"api",
+										"v1",
+										"customer",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
